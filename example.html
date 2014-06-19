@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="extnodelist.js"></script>
+	</head>
+	<body>
+		<section>
+			<ul id="list1">
+				<li>Test 1
+				<li>Test 2
+				<li>Test 3
+				<li>Test 4
+				<li>Test 5
+			</ul>
+			<ol id="olist1">
+				<li>Test 1
+				<li>Test 2
+				<li>Test 3
+				<li>Test 4
+				<li>Test 5
+			</ol>
+		</section>
+		<ul id="list2">
+			<li>Test 1
+			<li>Test 2
+			<li>Test 3
+			<li>Test 4
+			<li>Test 5
+		</ul>
+		<section>
+			<div>
+				<aside>
+					<ul id="list3">
+						<li>Test 1
+						<li>Test 2
+						<li>Test 3
+						<li>Test 4
+						<li>Test 5
+					</ul>
+				</aside>
+
+				<ol id="olist2">
+					<li>Test 1
+					<li>Test 2
+					<li>Test 3
+					<li>Test 4
+					<li>Test 5
+				</ol>
+			</div>
+		</section>
+
+		<script>
+			/**
+			 * This code is simply an example and should be used with care.
+			 *
+			 * For instance, this piece of code would break an implementation
+			 * that employs the jQuery library.
+			 */
+			(function(window){
+				var docNodes = new ExtNodeList(document.documentElement.childNodes);
+
+				window['$'] = function(){
+					return docNodes.querySelectorAll.apply(docNodes,arguments);
+				};
+			})(window);
+			/*
+				// EXECUTE THE FOLLOWING IN CONSOLE
+				var enl = $('section');
+
+				enl.querySelectorAll('li');
+			*/
+		</script>
+	</body>
+</html>
