@@ -37,8 +37,7 @@ var ExtNodeList = (function(){
 				enumerable: false,
 				value: function() {
 					// Create temporary element to get NodeList
-					var tmp = document.createElement("temp"),
-						nodeList = this.nodeList;
+					var tmp = document.createElement("temp");
 
 					// Clone all containing DOM nodes
 					for(var i=0;i<this.length;i++) {
@@ -166,7 +165,7 @@ var ExtNodeList = (function(){
 						);
 
 						// Search inside tmp to see if node matches
-						if (tmp.querySelectorAll(selector).length>0) {
+						if (ret.indexOf(elem) < 0 && tmp.querySelectorAll(selector).length>0) {
 							// Add found items to return list
 							ret.push(elem);
 						}
