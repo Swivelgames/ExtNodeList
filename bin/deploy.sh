@@ -33,7 +33,7 @@ git checkout master
 git merge -m "fixup! merge" $RELEASE_BRANCH -X theirs
 git branch -D $RELEASE_BRANCH
 git reset --soft HEAD~1
-git commit -m "AUTO: Merging $RELEASE_BRANCH release branch for version $NVERSION"
+git commit -m "AUTO: Merging $RELEASE_BRANCH branch for version $NVERSION"
 git tag -a $NVERSION
 wait $!
 git checkout develop
