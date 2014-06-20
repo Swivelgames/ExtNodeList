@@ -1,5 +1,7 @@
 ExtNodeList
 ===========
+*NOTICE: For non-minified, development version, checkout the `develop` branch. Those looking to simply drop this in their implementations can simply grab the `master` branch instead.*
+
 A simple prototype for creating referenced lists of nodes. This utility is meant to emulate, as best as possible, standard JavaScript methods that are available on DOM elements, but not NodeLists. Most notably, this utility emulates the querySelectorAll method, allowing a developer to search within the NodeList for specific nodes, which is currently unavialable on NodeLists.
 
 This utility effectively allows a developer to create, maintain, combine, add to, and remove from a NodeList (ExtNodeList, rather) for easy management of a list of DOM _reference_, as opposed to removing elements from their current position in the DOM.
