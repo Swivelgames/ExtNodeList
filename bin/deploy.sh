@@ -20,20 +20,17 @@ cd $GIT_DIR
 
 RELEASE_BRANCH="release-$NVERSION"
 
-git checkout develop
-git tag -a "develop-$NVERSION" -m "Development release for $NVERSION"
-git checkout -b $RELEASE_BRANCH
+git checkout -b $RELEASE_BRANCH develop
 $BIN_DIR/compile.sh
 wait $!
 git rm -f "$GIT_DIR/extnodelist.js"
 git rm -r -f $BIN_DIR
 git add "$GIT_DIR/extnodelist.min.js"
-git commit -m "fixup! commit"
+git commit -m "AUTO: Compiled and prepared repository for $NVERSION release"
 git checkout master
-git merge -m "fixup! merge" $RELEASE_BRANCH -X theirs
+git merge -m "AUTO: Merging $RELEASE_BRANCH branch for version $NVERSION" $RELEASE_BRANCH -X theirs
 git branch -D $RELEASE_BRANCH
-git reset --soft HEAD~1
-git commit -m "AUTO: Merging $RELEASE_BRANCH branch for version $NVERSION"
 git tag -a $NVERSION
 wait $!
 git checkout develop
+git tag -a "develop-$NVERSION" -m "Development release for $NVERSION"
