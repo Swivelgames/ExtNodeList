@@ -20,7 +20,10 @@ cd $GIT_DIR
 
 RELEASE_BRANCH="release-$NVERSION"
 
-git checkout -b $RELEASE_BRANCH develop
+git checkout develop
+git tag -a "develop-$NVERSION" -m "Development release for $NVERSION"
+wait $!
+git checkout -b $RELEASE_BRANCH
 $BIN_DIR/compile.sh
 wait $!
 git rm -f "$GIT_DIR/extnodelist.js"
@@ -33,4 +36,3 @@ git branch -D $RELEASE_BRANCH
 git tag -a $NVERSION
 wait $!
 git checkout develop
-git tag -a "develop-$NVERSION" -m "Development release for $NVERSION"
