@@ -93,7 +93,7 @@ var ExtNodeList = (function(){
 				writable: false,
 				configurable: false,
 				enumerable: false,
-				value: function() {
+				value: function(val) {
 					// Remove all nodes
 					this.splice(0,this.length);
 
