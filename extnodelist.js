@@ -93,17 +93,9 @@ var ExtNodeList = (function(){
 				writable: false,
 				configurable: false,
 				enumerable: false,
-				value: function(val) {
-					/* If no arguments are passed, act as a getter
-					if (arguments.length<1) return this.nodeList;
-					// Otherwise, act as a setter
-					*/
-
+				value: function() {
 					// Remove all nodes
 					this.splice(0,this.length);
-
-					// Set nodeList to value passed
-					//this.nodeList = val;
 
 					// Iterate over nodes and push to this
 					for(var i=0;i<val.length;i++) {
